@@ -37,7 +37,7 @@ $(function () {
 
 function incrementar(elemento, seccion, clase) {
     $(elemento).removeClass("OK Error")
-    let valor;    
+    let valor;
     switch ($(elemento).text()) {
         case "":
             valor = "0";
@@ -47,12 +47,12 @@ function incrementar(elemento, seccion, clase) {
             valor = "";
             break;
         default:
-            valor=1 + parseInt($(elemento).text()[0]);
+            valor = 1 + parseInt($(elemento).text()[0]);
             break;
     }
-    $(elemento).text(valor.toString()+(clase=="T1000"&&valor!=""?".":""));    
+    $(elemento).text(valor.toString() + (clase == "T1000" && valor != "" ? "." : ""));
     if (valor != "" && valor != "0") {
-        CrearTarjeta(clase, seccion);        
+        CrearTarjeta(clase, seccion);
     }
     else if (valor == "") {
         let Agrupados;
@@ -84,7 +84,7 @@ function incrementar(elemento, seccion, clase) {
                 break;
         }
     }
-    
+
 }
 
 function CrearTarjeta(clase, seccion) {
@@ -118,7 +118,7 @@ function CrearTarjeta(clase, seccion) {
     }
 }
 
-function contar(elemento) {
+function contar(elemento,clase) {
     $(elemento).removeClass("OK Error")
     let valor;
     switch ($(elemento).text()) {
@@ -126,13 +126,14 @@ function contar(elemento) {
             valor = "0";
             break;
         case "9":
+        case "9.":
             valor = "";
             break;
         default:
-            $(elemento).text(1 + parseInt($(elemento).text()));
+            valor = 1 + parseInt($(elemento).text()[0]);
             break;
     }
-    $(elemento).text(valor);
+    $(elemento).text(valor.toString() + (clase == "T1000" && valor != "" ? "." : ""));
 }
 
 function seleccionarNumero(elemento) {
@@ -154,51 +155,51 @@ function validar() {
     }
 
     let digitos = $(".Tabla table td button")
-    let resultado=0;
+    let resultado = 0;
     for (let i = 0; i < numeros.length; i++) {
         for (let j = 0; j < 5; j++) {
-            if (j>=(5 - $(numeros[i]).text().length)) {
-                $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text() == $(numeros[i]).text()[$(numeros[i]).text().length-(5-j)] ? "OK" : "Error");
+            if (j >= (5 - $(numeros[i]).text().length)) {
+                $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text() == $(numeros[i]).text()[$(numeros[i]).text().length - (5 - j)] ? "OK" : "Error");
             }
             else {
                 $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text() == "" ? "OK" : "Error");
             }
         }
-        resultado=resultado+parseInt($(numeros[i]).text());
+        resultado = resultado + parseInt($(numeros[i]).text().replace(".",""));
     }
-    resultado=resultado.toString();
+    resultado = resultado.toString();
     $(".Tarjeta").removeClass("Error");
     for (let j = 0; j < 5; j++) {
-        if (j>=(5 - resultado.length)) {
-            $(digitos[j + (numeros.length * 5)]).addClass($(digitos[j + (numeros.length * 5)]).text() == resultado[resultado.length-(5-j)] ? "OK" : "Error");
-            switch(j){
+        if (j >= (5 - resultado.length)) {
+            $(digitos[j + (numeros.length * 5)]).addClass($(digitos[j + (numeros.length * 5)]).text() == resultado[resultado.length - (5 - j)] ? "OK" : "Error");
+            switch (j) {
                 case 4:
-                if($(".u .Tarjeta").length!=parseInt(resultado[resultado.length-(5-j)])){
-                    $($(".u .Tarjeta").splice(0,$(".u .Tarjeta").length-resultado[resultado.length-(5-j)])).addClass("Error");
-                }
-                break;
+                    if ($(".u .Tarjeta").length != parseInt(resultado[resultado.length - (5 - j)])) {
+                        $($(".u .Tarjeta").splice(0, $(".u .Tarjeta").length - resultado[resultado.length - (5 - j)])).addClass("Error");
+                    }
+                    break;
                 case 3:
-                if($(".d .Tarjeta").length!=parseInt(resultado[resultado.length-(5-j)])){
-                    $($(".d .Tarjeta").splice(0,$(".d .Tarjeta").length-resultado[resultado.length-(5-j)])).addClass("Error");
-                }
-                break;
+                    if ($(".d .Tarjeta").length != parseInt(resultado[resultado.length - (5 - j)])) {
+                        $($(".d .Tarjeta").splice(0, $(".d .Tarjeta").length - resultado[resultado.length - (5 - j)])).addClass("Error");
+                    }
+                    break;
                 case 2:
-                if($(".c .Tarjeta").length!=parseInt(resultado[resultado.length-(5-j)])){
-                    $($(".c .Tarjeta").splice(0,$(".c .Tarjeta").length-resultado[resultado.length-(5-j)])).addClass("Error");
-                }
-                break;
+                    if ($(".c .Tarjeta").length != parseInt(resultado[resultado.length - (5 - j)])) {
+                        $($(".c .Tarjeta").splice(0, $(".c .Tarjeta").length - resultado[resultado.length - (5 - j)])).addClass("Error");
+                    }
+                    break;
                 case 1:
-                if($(".um .Tarjeta").length!=parseInt(resultado[resultado.length-(5-j)])){
-                    $($(".um .Tarjeta").splice(0,$(".um .Tarjeta").length-resultado[resultado.length-(5-j)])).addClass("Error");
-                }
-                break;
+                    if ($(".um .Tarjeta").length != parseInt(resultado[resultado.length - (5 - j)])) {
+                        $($(".um .Tarjeta").splice(0, $(".um .Tarjeta").length - resultado[resultado.length - (5 - j)])).addClass("Error");
+                    }
+                    break;
                 case 0:
-                if($(".dm .Tarjeta").length!=parseInt(resultado[resultado.length-(5-j)])){
-                    $($(".dm .Tarjeta").splice(0,$(".dm .Tarjeta").length-resultado[resultado.length-(5-j)])).addClass("Error");
-                }
-                break;
+                    if ($(".dm .Tarjeta").length != parseInt(resultado[resultado.length - (5 - j)])) {
+                        $($(".dm .Tarjeta").splice(0, $(".dm .Tarjeta").length - resultado[resultado.length - (5 - j)])).addClass("Error");
+                    }
+                    break;
             }
-            
+
         }
         else {
             $(digitos[j + (numeros.length * 5)]).addClass($(digitos[j + (numeros.length * 5)]).text() == "" ? "OK" : "Error");
