@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Pedidos.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="Pedidos.js"></script>
+</head>
+
+<body>
+    <div class="Tablero">
+        <div class="Problema">Problema:Sumar los numeros <span class="Numero" onclick="seleccionarNumero(this)">5</span> y <span class="Numero" onclick="seleccionarNumero(this)">6</span></div>
+        <div class="Solucion">
+            <div class="Grafica">
+                <div><b>UM</b></div>
+                <div><b>DM</b></div>
+                <div><b>C </b></div>
+                <div><b>D </b></div>
+                <div><b>U </b></div>
+                <div class="ValorUnidad dm"> <div class="Agrupacion"><span>Contar y Agrupar</span><div></div></div><div class="No1"></div><div class="No2"></div></div>
+                <div class="ValorUnidad um"> <div class="Agrupacion"><span>Contar y Agrupar</span><div></div></div><div class="No1"></div><div class="No2"></div></div>
+                <div class="ValorUnidad c">  <div class="Agrupacion"><span>Contar y Agrupar</span><div></div></div><div class="No1"></div><div class="No2"></div></div>
+                <div class="ValorUnidad d">  <div class="Agrupacion"><span>Contar y Agrupar</span><div></div></div><div class="No1"></div><div class="No2"></div></div>
+                <div class="ValorUnidad u">  <div class="Agrupacion"><span>Contar y Agrupar</span><div></div></div><div class="No1"></div><div class="No2"></div></div>
+            </div>
+            <div class="Tabla">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td class="lleva cantidad-10000"></td>
+                        <td class="lleva cantidad-1000"></td>
+                        <td class="lleva cantidad-100"></td>
+                        <td class="lleva cantidad-10"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="Fondo">
+                        <td></td>
+                        <td><b>DM</b></td>
+                        <td><b>UM</b></td>
+                        <td><b>C</b></td>
+                        <td><b>D</b></td>
+                        <td><b>U</b></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">+</td>
+                        <td><button type="button" onclick="incrementar(this,'No1','T10000')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No1','T1000')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No1','T100')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No1','T10')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No1','T1')"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="incrementar(this,'No2','T10000')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No2','T1000')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No2','T100')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No2','T10')"></button></td>
+                        <td><button type="button" onclick="incrementar(this,'No2','T1')"></button></td>
+                    </tr>
+                    <tr class="Fondo">
+                        <td>=</td>
+                        <td><button type="button" onclick="contar(this)"></button></td>
+                        <td><button type="button" onclick="contar(this)"></button></td>
+                        <td><button type="button" onclick="contar(this)"></button></td>
+                        <td><button type="button" onclick="contar(this)"></button></td>
+                        <td><button type="button" onclick="contar(this)"></button></td>
+                    </tr>
+                </table>
+                <button type="button" onclick="validar()"> Validar </button>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+</body>
+
+</html>

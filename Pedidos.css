@@ -1,0 +1,188 @@
+.Tablero {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: antiquewhite;
+	display: flex;
+	flex-direction: column;
+}
+
+.Problema {
+    border: solid 2px black;
+    height: 10%;
+    background-color: white;
+    padding: 10px 0px;
+}
+
+.Solucion {
+	height: 90%;
+	display: flex;
+}
+
+.Grafica {
+	border: solid 2px black;
+	width: 80%;
+	display: flex;
+	justify-content: start;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.Grafica>div {
+	width: 20%;
+	box-sizing: border-box;
+	border: solid 2px black;
+	font-size: 20px;
+	text-align: center;
+}
+
+.ValorUnidad {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100% - 30px);
+}
+
+.ValorUnidad>div {
+	display: flex;
+	align-items: flex-start;
+	justify-content: start;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 33.3%;
+}
+
+.ValorUnidad .Agrupacion {
+	border: 1px dashed black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ValorUnidad .Agrupacion > div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.Tabla {
+	border: solid 2px black;
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.Tabla table {
+	border-collapse: collapse;
+	width: 95%;
+	height: 50%;
+}
+
+.Tabla table td {
+	border: solid 2px black;
+	text-align: center;
+	width: 17%;
+	height: 20%;	
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.Tabla table td button {
+	width: 100%;
+	height: 100%;	
+	font-size: 25px;
+}
+
+.Tabla table td button.OK {
+    background: none;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.Tabla table td button.Error {
+    background: none;
+    border: solid salmon 3px;
+    border-radius: 50%;
+    font-weight: bold;
+    color: salmon;
+}
+
+.Tabla .Fondo {
+	background-color: #ccc;
+}
+
+.Tabla>button{
+	font-size: 25px;
+    width: 90%;
+    margin: 40px 10px
+}
+
+.Tarjeta {
+	width: 60px;
+	height: 60px;
+	border: 3px solid black;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 1%;
+}
+
+.Tarjeta.Error span{
+	color: red;
+	text-decoration: underline dotted;
+}
+
+.T1 {
+	font-size: 50px;
+	background-color: white;
+}
+
+.T10 {
+	font-size: 50px;
+	background-color: pink;
+}
+
+.T100 {
+	font-size: 35px;
+	background-color: dodgerblue;
+}
+
+.T1000 {
+	font-size: 23px;
+	background-color: yellow;
+}
+
+.T10000 {
+	font-size: 18px;
+	background-color: forestgreen;
+}
+
+.Numero.Seleccionado{
+    font-size: 30px;
+    font-weight: bold;	
+    padding: 5px;    
+}
+
+.Numero.Error{
+    font-size: 30px;
+    font-weight: bold;	
+    padding: 5px; 
+	color: salmon;
+    border-radius: 50%;
+    border: solid salmon 3px;
+}
+
+.Numero.OK{
+    color: limegreen;
+    border-radius: 50%;
+    border: solid limegreen 3px;
+}
