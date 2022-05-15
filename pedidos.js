@@ -43,15 +43,16 @@ function incrementar(elemento, seccion, clase) {
             valor = "0";
             break;
         case "9":
+        case "9.":
             valor = "";
             break;
         default:
-            $(elemento).text(1 + parseInt($(elemento).text()));
+            valor=1 + parseInt($(elemento).text()[0]);
             break;
     }
-    $(elemento).text(valor);
+    $(elemento).text(valor.toString()+(clase=="T1000"&&valor!=""?".":""));    
     if (valor != "" && valor != "0") {
-        CrearTarjeta(clase, seccion);
+        CrearTarjeta(clase, seccion);        
     }
     else if (valor == "") {
         let Agrupados;
@@ -83,6 +84,7 @@ function incrementar(elemento, seccion, clase) {
                 break;
         }
     }
+    
 }
 
 function CrearTarjeta(clase, seccion) {
