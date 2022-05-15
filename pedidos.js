@@ -157,21 +157,22 @@ function validar() {
     let digitos = $(".Tabla table td button")
     let resultado = 0;
     for (let i = 0; i < numeros.length; i++) {
+        numeros[i]=$(numeros[i]).text().replace(".","");
         for (let j = 0; j < 5; j++) {
-            if (j >= (5 - $(numeros[i]).text().length)) {
-                $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text() == $(numeros[i]).text()[$(numeros[i]).text().length - (5 - j)] ? "OK" : "Error");
+            if (j >= (5 - numeros[i].length)) {
+                $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text()[0] == numeros[i][numeros[i].length - (5 - j)] ? "OK" : "Error");
             }
             else {
                 $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text() == "" ? "OK" : "Error");
             }
         }
-        resultado = resultado + parseInt($(numeros[i]).text().replace(".",""));
+        resultado = resultado + parseInt(numeros[i]);
     }
     resultado = resultado.toString();
     $(".Tarjeta").removeClass("Error");
     for (let j = 0; j < 5; j++) {
         if (j >= (5 - resultado.length)) {
-            $(digitos[j + (numeros.length * 5)]).addClass($(digitos[j + (numeros.length * 5)]).text() == resultado[resultado.length - (5 - j)] ? "OK" : "Error");
+            $(digitos[j + (numeros.length * 5)]).addClass($(digitos[j + (numeros.length * 5)]).text()[0] == resultado[resultado.length - (5 - j)] ? "OK" : "Error");
             switch (j) {
                 case 4:
                     if ($(".u .Tarjeta").length != parseInt(resultado[resultado.length - (5 - j)])) {
