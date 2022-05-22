@@ -1,3 +1,12 @@
+$(document).ready(function () {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.get('num1') && urlParams.get('num2')) {
+        $(".Numero:nth-child(1)").text(urlParams.get('num1'));
+        $(".Numero:nth-child(2)").text(urlParams.get('num2'));
+    }
+});
+
 $(function () {
     $(".Agrupacion").droppable({
         drop: function (event, ui) {
@@ -118,7 +127,7 @@ function CrearTarjeta(clase, seccion) {
     }
 }
 
-function contar(elemento,clase) {
+function contar(elemento, clase) {
     $(elemento).removeClass("OK Error")
     let valor;
     switch ($(elemento).text()) {
@@ -157,7 +166,7 @@ function validar() {
     let digitos = $(".Tabla table td button")
     let resultado = 0;
     for (let i = 0; i < numeros.length; i++) {
-        numeros[i]=$(numeros[i]).text().replace(".","");
+        numeros[i] = $(numeros[i]).text().replace(".", "");
         for (let j = 0; j < 5; j++) {
             if (j >= (5 - numeros[i].length)) {
                 $(digitos[j + (i * 5)]).addClass($(digitos[j + (i * 5)]).text()[0] == numeros[i][numeros[i].length - (5 - j)] ? "OK" : "Error");
